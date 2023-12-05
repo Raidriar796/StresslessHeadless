@@ -1,19 +1,26 @@
 # StresslessHeadless
 
-A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that reduces the resource usage for Headless clients by disabling frequent and heavy calculations.
+A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that reduces strain on Headless clients by disabling frequent and heavy calculations.
+
+**Disclaimer: this may occasionally cause irregular behavior in some sessions, config options are provided in the event issues occur.**
+
+The following cases are known to cause irregular behavior:
+- Requiring the host to provide the output of a driven value from a component that's disabled by this mod.
+
 
 ## What gets disabled:
-- VRIK
-- VRIKAvatar
+
+- AutoLookAtUser
 - DynamicBoneChain
 - EyeManager
-- Panner1D-4D
-- Spinner
-- Wiggler
-- Wobbler1D-4D
 - LookAt
 - LookAtUser
-- AutoLookAtUser
+- Panner1D-4D
+- Spinner
+- VRIK
+- VRIKAvatar
+- Wiggler
+- Wobbler1D-4D
 
 ## Requirements
 - [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
