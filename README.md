@@ -14,7 +14,6 @@ A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoade
 - LookAt
 - LookAtUser
 - AutoLookAtUser
-- Bounding Boxes
 
 ## Requirements
 - [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
