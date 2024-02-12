@@ -1,6 +1,6 @@
 # StresslessHeadless
 
-A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that reduces strain on Headless clients by disabling frequent and heavy calculations.
+A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that disables frequent and heavy calculations on certain components from running on Headless clients. 
 
 **Disclaimer: this may occasionally cause irregular behavior in some sessions, config options are provided in the event issues occur.**
 
@@ -24,7 +24,7 @@ The following cases are known to cause irregular behavior:
 - Wobbler1D-4D
 
 ## Requirements
-- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
+- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) 2.6.0 or later
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
