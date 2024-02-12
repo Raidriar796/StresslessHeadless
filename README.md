@@ -16,6 +16,7 @@ The following cases are known to cause irregular behavior:
 - LookAt
 - LookAtUser
 - Panner1D-4D
+- Procedural Meshes
 - Spinner
 - VRIK
 - VRIKAvatar
