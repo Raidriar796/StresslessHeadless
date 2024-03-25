@@ -6,6 +6,7 @@ A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoade
 
 The following cases are known to cause irregular behavior:
 - Requiring the host to provide the output of a driven value from a component that's disabled by this mod.
+- Making the host run the async call in a "Bake Meshes" node
 
 
 ## What gets disabled:
