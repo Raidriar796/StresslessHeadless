@@ -16,6 +16,9 @@ public class StresslessHeadless : ResoniteMod
 
     public static ModConfiguration Config;
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> Enable =
+        new ModConfigurationKey<bool>("Enable", null, () => true);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
         new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
 
@@ -211,17 +214,13 @@ public class StresslessHeadless : ResoniteMod
         Config = GetConfiguration();
         Config?.Save(true);
 
-        if (ModLoader.VERSION == "2.4.0") OutOfDateWarning();
-        else if (ModLoader.VERSION == "2.5.0") OutOfDateWarning();
-        else if (ModLoader.VERSION == "2.5.1") OutOfDateWarning();
+        if (ModLoader.VERSION == "2.4.0") Msg(warningText);
+        else if (ModLoader.VERSION == "2.5.0") Msg(warningText);
+        else if (ModLoader.VERSION == "2.5.1") Msg(warningText);
         else if (!ModLoader.IsHeadless) Msg("Mod intended for Headless clients, please uninstall");
-        else harmony.PatchAll();
+        else if (Config.GetValue(Enable)) harmony.PatchAll();
     }
-
-    public static void OutOfDateWarning()
-    {
-        Msg("Mod Loader out of date, please update to 2.6.0 or later");
-    }
+    string warningText = "Mod Loader out of date, please update to 2.6.0 or later";
 
     // Discord integration skips
 
@@ -248,7 +247,7 @@ public class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Initizalize")]
-    public class InitializePatch
+    public class DiscordInitializePatch
     {
         private static bool Prefix()
         {
@@ -292,7 +291,7 @@ public class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "SetCurrentStatus")]
-    public class SetCurrentStatusPatch
+    public class DiscordSetCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -303,7 +302,7 @@ public class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Update")]
-    public class UpdatePatch
+    public class DiscordUpdatePatch
     {
         private static bool Prefix()
         {
@@ -361,6 +360,94 @@ public class StresslessHeadless : ResoniteMod
 
     [HarmonyPatch(typeof(SteamConnector), "GameRichPresenceJoinRequested")]
     public class GameRichPresenceJoinRequestedPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "Initialize")]
+    public class SteamInitializePatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "InitializeSteamAPI")]
+    public class InitializeSteamAPIPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "IsRemotePlayActive")]
+    public class IsRemotePlayActivePatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "NotifyOfLocalUser")]
+    public class NotifyOfLocalUserPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "OnSteamSettingsChanged")]
+    public class OnSteamSettingsChangedPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "SetCurrentStatus")]
+    public class SteamSetCurrentStatusPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "ThreadWorker")]
+    public class ThreadWorkerPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "Update")]
+    public class SteamUpdatePatch
     {
         private static bool Prefix()
         {
