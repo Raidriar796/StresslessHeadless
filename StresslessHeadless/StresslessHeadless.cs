@@ -19,6 +19,9 @@ public class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
         new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSteamIntegration =
+        new ModConfigurationKey<bool>("RunSteamIntegration", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunArrowMesh =
         new ModConfigurationKey<bool>("RunArrowMesh", null, () => false);
 
@@ -223,7 +226,7 @@ public class StresslessHeadless : ResoniteMod
     // Discord integration skips
 
     [HarmonyPatch(typeof(DiscordConnector), "ClearCurrentStatus")]
-    public class ClearCurrentStatusPatch
+    public class DiscordClearCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -234,7 +237,7 @@ public class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Dispose")]
-    public class Dispose
+    public class DiscordDisposePatch
     {
         private static bool Prefix()
         {
@@ -316,6 +319,52 @@ public class StresslessHeadless : ResoniteMod
         private static bool Prefix()
         {
             if (!Config.GetValue(RunDiscordIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    // Steam integration skips
+
+    [HarmonyPatch(typeof(SteamConnector), "ClearCurrentStatus")]
+    public class SteamClearCurrentStatusPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "DeleteFile")]
+    public class DeleteFilePatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "Dispose")]
+    public class SteamDisposePatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SteamConnector), "GameRichPresenceJoinRequested")]
+    public class GameRichPresenceJoinRequestedPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunSteamIntegration)) return false;
 
             return true;
         }
