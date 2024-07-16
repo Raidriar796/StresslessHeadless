@@ -9,12 +9,6 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> Enable =
         new ModConfigurationKey<bool>("Enable", null, () => true);
 
-    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
-        new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
-
-    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSteamIntegration =
-        new ModConfigurationKey<bool>("RunSteamIntegration", null, () => false);
-
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunArrowMesh =
         new ModConfigurationKey<bool>("RunArrowMesh", null, () => false);
 
@@ -78,6 +72,9 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunCylinderMesh =
         new ModConfigurationKey<bool>("RunCylinderMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
+        new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDynamicBoneChain =
         new ModConfigurationKey<bool>("RunDynamicBoneChain", null, () => false);
 
@@ -132,6 +129,9 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunPointMesh =
         new ModConfigurationKey<bool>("RunPointMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunProtofluxVisuals =
+        new ModConfigurationKey<bool>("RunProtofluxVisuals", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunQuadArrayMesh =
         new ModConfigurationKey<bool>("RunQuadArrayMesh", null, () => false);
 
@@ -155,6 +155,9 @@ public partial class StresslessHeadless : ResoniteMod
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSpinner =
         new ModConfigurationKey<bool>("RunSpinner", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSteamIntegration =
+        new ModConfigurationKey<bool>("RunSteamIntegration", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStripeMesh =
         new ModConfigurationKey<bool>("RunStripeMesh", null, () => false);

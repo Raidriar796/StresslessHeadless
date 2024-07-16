@@ -8,7 +8,7 @@ namespace StresslessHeadless;
 public partial class StresslessHeadless : ResoniteMod
 {
     [HarmonyPatch(typeof(DynamicBoneChainManager), "Update")]
-    public class DynamicBoneChainPatch
+    private class DynamicBoneChainPatch
     {
         private static bool Prefix()
         {
@@ -19,7 +19,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(VRIK), "OnCommonUpdate")]
-    public class VRIKPatch
+    private class VRIKPatch
     {
         private static bool Prefix()
         {
@@ -30,7 +30,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(VRIKAvatar), "OnCommonUpdate")]
-    public class VRIKAvatarPatch
+    private class VRIKAvatarPatch
     {
         private static bool Prefix()
         {

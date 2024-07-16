@@ -8,7 +8,7 @@ namespace StresslessHeadless;
 public partial class StresslessHeadless : ResoniteMod
 {
     [HarmonyPatch(typeof(ArrowMesh), "UpdateMeshData")]
-    public class ArrowMeshPatch
+    private class ArrowMeshPatch
     {
         private static bool Prefix()
         {
@@ -19,7 +19,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BallisticPathMesh), "UpdateMeshData")]
-    public class BallisticPathMeshPatch
+    private class BallisticPathMeshPatch
     {
         private static bool Prefix()
         {
@@ -30,7 +30,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BentTubeMesh), "UpdateMeshData")]
-    public class BentTubeMeshPatch
+    private class BentTubeMeshPatch
     {
         private static bool Prefix()
         {
@@ -41,7 +41,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BevelBoxMesh), "UpdateMeshData")]
-    public class BevelBoxMeshPatch
+    private class BevelBoxMeshPatch
     {
         private static bool Prefix()
         {
@@ -52,7 +52,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BevelPlaneMesh), "UpdateMeshData")]
-    public class BevelPlaneMeshPatch
+    private class BevelPlaneMeshPatch
     {
         private static bool Prefix()
         {
@@ -63,7 +63,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BevelRingMesh), "UpdateMeshData")]
-    public class BevelRingMeshPatch
+    private class BevelRingMeshPatch
     {
         private static bool Prefix()
         {
@@ -74,7 +74,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BevelStripeMesh), "UpdateMeshData")]
-    public class BevelStripeMeshPatch
+    private class BevelStripeMeshPatch
     {
         private static bool Prefix()
         {
@@ -85,7 +85,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BezierTubeMesh), "UpdateMeshData")]
-    public class BezierTubeMeshPatch
+    private class BezierTubeMeshPatch
     {
         private static bool Prefix()
         {
@@ -96,7 +96,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BoxArrayMesh), "UpdateMeshData")]
-    public class BoxArrayMeshPatch
+    private class BoxArrayMeshPatch
     {
         private static bool Prefix()
         {
@@ -107,7 +107,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(BoxMesh), "UpdateMeshData")]
-    public class BoxMeshPatch
+    private class BoxMeshPatch
     {
         private static bool Prefix()
         {
@@ -118,7 +118,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CameraFrustumMesh), "UpdateMeshData")]
-    public class CameraFrustumMeshPatch
+    private class CameraFrustumMeshPatch
     {
         private static bool Prefix()
         {
@@ -129,7 +129,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CapsuleMesh), "UpdateMeshData")]
-    public class CapsuleMeshPatch
+    private class CapsuleMeshPatch
     {
         private static bool Prefix()
         {
@@ -140,7 +140,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CircleMesh), "UpdateMeshData")]
-    public class CircleMeshPatch
+    private class CircleMeshPatch
     {
         private static bool Prefix()
         {
@@ -151,7 +151,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CircleSegmentShaderMesh), "UpdateMeshData")]
-    public class CircleSegmentShaderMeshPatch
+    private class CircleSegmentShaderMeshPatch
     {
         private static bool Prefix()
         {
@@ -162,7 +162,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(ColorWheelTriangleMesh), "UpdateMeshData")]
-    public class ColorWheelTriangleMeshPatch
+    private class ColorWheelTriangleMeshPatch
     {
         private static bool Prefix()
         {
@@ -173,7 +173,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(ConeMesh), "UpdateMeshData")]
-    public class ConeMeshPatch
+    private class ConeMeshPatch
     {
         private static bool Prefix()
         {
@@ -184,7 +184,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CrossMesh), "UpdateMeshData")]
-    public class CrossMeshPatch
+    private class CrossMeshPatch
     {
         private static bool Prefix()
         {
@@ -195,7 +195,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(ConvexHullMesh), "UpdateMeshData")]
-    public class ConvexHullMeshPatch
+    private class ConvexHullMeshPatch
     {
         private static bool Prefix()
         {
@@ -206,7 +206,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CurvedPlaneMesh), "UpdateMeshData")]
-    public class CurvedPlaneMeshPatch
+    private class CurvedPlaneMeshPatch
     {
         private static bool Prefix()
         {
@@ -217,7 +217,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(CylinderMesh), "UpdateMeshData")]
-    public class CylinderMeshPatch
+    private class CylinderMeshPatch
     {
         private static bool Prefix()
         {
@@ -228,7 +228,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(EyeManager), "OnCommonUpdate")]
-    public class EyeManagerPatch
+    private class EyeManagerPatch
     {
         private static bool Prefix()
         {
@@ -239,7 +239,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(FrameMesh), "UpdateMeshData")]
-    public class FrameMeshPatch
+    private class FrameMeshPatch
     {
         private static bool Prefix()
         {
@@ -250,7 +250,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(HollowConeMesh), "UpdateMeshData")]
-    public class HollowConeMeshPatch
+    private class HollowConeMeshPatch
     {
         private static bool Prefix()
         {
@@ -261,7 +261,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(IcoSphereMesh), "UpdateMeshData")]
-    public class IcoSphereMeshPatch
+    private class IcoSphereMeshPatch
     {
         private static bool Prefix()
         {
@@ -272,7 +272,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(LabelPointerMesh), "UpdateMeshData")]
-    public class LabelPointerMeshPatch
+    private class LabelPointerMeshPatch
     {
         private static bool Prefix()
         {
@@ -283,7 +283,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(LegacyCircleSegmentMesh), "UpdateMeshData")]
-    public class LegacyCircleSegmentMeshPatch
+    private class LegacyCircleSegmentMeshPatch
     {
         private static bool Prefix()
         {
@@ -294,7 +294,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(LightningMesh), "UpdateMeshData")]
-    public class LightningMeshPatch
+    private class LightningMeshPatch
     {
         private static bool Prefix()
         {
@@ -305,7 +305,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(MultiBevelStripeMesh), "UpdateMeshData")]
-    public class MultiBevelStripeMeshPatch
+    private class MultiBevelStripeMeshPatch
     {
         private static bool Prefix()
         {
@@ -316,7 +316,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(MultiLineMesh), "UpdateMeshData")]
-    public class MultiLineMeshPatch
+    private class MultiLineMeshPatch
     {
         private static bool Prefix()
         {
@@ -327,7 +327,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(MultiSegmentMesh), "UpdateMeshData")]
-    public class MultiSegmentMeshPatch
+    private class MultiSegmentMeshPatch
     {
         private static bool Prefix()
         {
@@ -338,7 +338,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(PointMesh), "UpdateMeshData")]
-    public class PointMeshPatch
+    private class PointMeshPatch
     {
         private static bool Prefix()
         {
@@ -349,7 +349,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(QuadArrayMesh), "UpdateMeshData")]
-    public class QuadArrayMeshPatch
+    private class QuadArrayMeshPatch
     {
         private static bool Prefix()
         {
@@ -360,7 +360,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(QuadMesh), "UpdateMeshData")]
-    public class QuadMeshPatch
+    private class QuadMeshPatch
     {
         private static bool Prefix()
         {
@@ -371,7 +371,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(RampMesh), "UpdateMeshData")]
-    public class RampMeshPatch
+    private class RampMeshPatch
     {
         private static bool Prefix()
         {
@@ -382,7 +382,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(RingMesh), "UpdateMeshData")]
-    public class RingMeshPatch
+    private class RingMeshPatch
     {
         private static bool Prefix()
         {
@@ -393,7 +393,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SegmentMesh), "UpdateMeshData")]
-    public class SegmentMeshPatch
+    private class SegmentMeshPatch
     {
         private static bool Prefix()
         {
@@ -404,7 +404,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SlotSegmentMesh), "UpdateMeshData")]
-    public class SlotSegmentMeshPatch
+    private class SlotSegmentMeshPatch
     {
         private static bool Prefix()
         {
@@ -415,7 +415,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SphereMesh), "UpdateMeshData")]
-    public class SphereMeshPatch
+    private class SphereMeshPatch
     {
         private static bool Prefix()
         {
@@ -426,7 +426,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(StripeMesh), "UpdateMeshData")]
-    public class StripeMeshPatch
+    private class StripeMeshPatch
     {
         private static bool Prefix()
         {
@@ -437,7 +437,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
     
     [HarmonyPatch(typeof(TorusMesh), "UpdateMeshData")]
-    public class TorusMeshPatch
+    private class TorusMeshPatch
     {
         private static bool Prefix()
         {
@@ -448,7 +448,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
     
     [HarmonyPatch(typeof(TriangleMesh), "UpdateMeshData")]
-    public class TriangleMeshPatch
+    private class TriangleMeshPatch
     {
         private static bool Prefix()
         {
@@ -459,7 +459,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
     
     [HarmonyPatch(typeof(TubeBoxMesh), "UpdateMeshData")]
-    public class TubeBoxMeshPatch
+    private class TubeBoxMeshPatch
     {
         private static bool Prefix()
         {
@@ -470,7 +470,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
     
     [HarmonyPatch(typeof(TubeMesh), "UpdateMeshData")]
-    public class TubeMeshPatch
+    private class TubeMeshPatch
     {
         private static bool Prefix()
         {
@@ -481,7 +481,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(TubeSpiralMesh), "UpdateMeshData")]
-    public class TubeSpiralMeshPatch
+    private class TubeSpiralMeshPatch
     {
         private static bool Prefix()
         {
@@ -492,7 +492,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
     
     [HarmonyPatch(typeof(WireMeshBase), "UpdateMeshData")]
-    public class WireMeshBasePatch
+    private class WireMeshBasePatch
     {
         private static bool Prefix()
         {

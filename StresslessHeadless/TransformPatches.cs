@@ -7,7 +7,7 @@ namespace StresslessHeadless;
 public partial class StresslessHeadless : ResoniteMod
 {
     [HarmonyPatch(typeof(AutoLookAtUser), "OnCommonUpdate")]
-    public class AutoLookAtUserPatch
+    private class AutoLookAtUserPatch
     {
         private static bool Prefix()
         {
@@ -18,7 +18,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(LookAt), "OnCommonUpdate")]
-    public class LookAtPatch
+    private class LookAtPatch
     {
         private static bool Prefix()
         {
@@ -29,7 +29,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(LookAtUser), "OnCommonUpdate")]
-    public class LookAtUserPatch
+    private class LookAtUserPatch
     {
         private static bool Prefix()
         {
@@ -40,7 +40,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Panner1D), "OnCommonUpdate")]
-    public class Panner1DPatch
+    private class Panner1DPatch
     {
         private static bool Prefix()
         {
@@ -51,7 +51,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Panner2D), "OnCommonUpdate")]
-    public class Panner2DPatch
+    private class Panner2DPatch
     {
         private static bool Prefix()
         {
@@ -62,7 +62,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Panner3D), "OnCommonUpdate")]
-    public class Panner3DPatch
+    private class Panner3DPatch
     {
         private static bool Prefix()
         {
@@ -73,7 +73,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Panner4D), "OnCommonUpdate")]
-    public class Panner4DPatch
+    private class Panner4DPatch
     {
         private static bool Prefix()
         {
@@ -84,7 +84,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Spinner), "OnCommonUpdate")]
-    public class SpinnerPatch
+    private class SpinnerPatch
     {
         private static bool Prefix()
         {
@@ -95,7 +95,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Wiggler), "OnCommonUpdate")]
-    public class WigglerPatch
+    private class WigglerPatch
     {
         private static bool Prefix()
         {
@@ -106,7 +106,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Wobbler1D), "OnCommonUpdate")]
-    public class Wobbler1DPatch
+    private class Wobbler1DPatch
     {
         private static bool Prefix()
         {
@@ -117,7 +117,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Wobbler2D), "OnCommonUpdate")]
-    public class Wobbler2DPatch
+    private class Wobbler2DPatch
     {
         private static bool Prefix()
         {
@@ -128,7 +128,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Wobbler3D), "OnCommonUpdate")]
-    public class Wobbler3DPatch
+    private class Wobbler3DPatch
     {
         private static bool Prefix()
         {
@@ -139,7 +139,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(Wobbler4D), "OnCommonUpdate")]
-    public class Wobbler4DPatch
+    private class Wobbler4DPatch
     {
         private static bool Prefix()
         {

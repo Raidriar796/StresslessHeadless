@@ -7,7 +7,7 @@ namespace StresslessHeadless;
 public partial class StresslessHeadless : ResoniteMod
 {
     [HarmonyPatch(typeof(SteamConnector), "ClearCurrentStatus")]
-    public class SteamClearCurrentStatusPatch
+    private class SteamClearCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -18,7 +18,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "DeleteFile")]
-    public class DeleteFilePatch
+    private class DeleteFilePatch
     {
         private static bool Prefix()
         {
@@ -29,7 +29,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "Dispose")]
-    public class SteamDisposePatch
+    private class SteamDisposePatch
     {
         private static bool Prefix()
         {
@@ -40,7 +40,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "GameRichPresenceJoinRequested")]
-    public class GameRichPresenceJoinRequestedPatch
+    private class GameRichPresenceJoinRequestedPatch
     {
         private static bool Prefix()
         {
@@ -51,7 +51,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "Initialize")]
-    public class SteamInitializePatch
+    private class SteamInitializePatch
     {
         private static bool Prefix()
         {
@@ -62,7 +62,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "InitializeSteamAPI")]
-    public class InitializeSteamAPIPatch
+    private class InitializeSteamAPIPatch
     {
         private static bool Prefix()
         {
@@ -73,7 +73,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "IsRemotePlayActive")]
-    public class IsRemotePlayActivePatch
+    private class IsRemotePlayActivePatch
     {
         private static bool Prefix()
         {
@@ -84,7 +84,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "NotifyOfLocalUser")]
-    public class NotifyOfLocalUserPatch
+    private class NotifyOfLocalUserPatch
     {
         private static bool Prefix()
         {
@@ -95,7 +95,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "OnSteamSettingsChanged")]
-    public class OnSteamSettingsChangedPatch
+    private class OnSteamSettingsChangedPatch
     {
         private static bool Prefix()
         {
@@ -106,7 +106,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "SetCurrentStatus")]
-    public class SteamSetCurrentStatusPatch
+    private class SteamSetCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -117,7 +117,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "ThreadWorker")]
-    public class ThreadWorkerPatch
+    private class ThreadWorkerPatch
     {
         private static bool Prefix()
         {
@@ -128,7 +128,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(SteamConnector), "Update")]
-    public class SteamUpdatePatch
+    private class SteamUpdatePatch
     {
         private static bool Prefix()
         {

@@ -7,7 +7,7 @@ namespace StresslessHeadless;
 public partial class StresslessHeadless : ResoniteMod
 {
     [HarmonyPatch(typeof(DiscordConnector), "ClearCurrentStatus")]
-    public class DiscordClearCurrentStatusPatch
+    private class DiscordClearCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -18,7 +18,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Dispose")]
-    public class DiscordDisposePatch
+    private class DiscordDisposePatch
     {
         private static bool Prefix()
         {
@@ -29,7 +29,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Initialize")]
-    public class DiscordInitializePatch
+    private class DiscordInitializePatch
     {
         private static bool Prefix()
         {
@@ -40,7 +40,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "LogHook")]
-    public class LogHookPatch
+    private class LogHookPatch
     {
         private static bool Prefix()
         {
@@ -51,7 +51,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "OnRichPresenceSettingsChanged")]
-    public class OnRichPresenceSettingsChangedPatch
+    private class OnRichPresenceSettingsChangedPatch
     {
         private static bool Prefix()
         {
@@ -62,7 +62,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "SetBlankActivity")]
-    public class SetBlankActivityPatch
+    private class SetBlankActivityPatch
     {
         private static bool Prefix()
         {
@@ -73,7 +73,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "SetCurrentStatus")]
-    public class DiscordSetCurrentStatusPatch
+    private class DiscordSetCurrentStatusPatch
     {
         private static bool Prefix()
         {
@@ -84,7 +84,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "Update")]
-    public class DiscordUpdatePatch
+    private class DiscordUpdatePatch
     {
         private static bool Prefix()
         {
@@ -95,7 +95,7 @@ public partial class StresslessHeadless : ResoniteMod
     }
 
     [HarmonyPatch(typeof(DiscordConnector), "UserCallback")]
-    public class UserCallbackPatch
+    private class UserCallbackPatch
     {
         private static bool Prefix()
         {
