@@ -99,6 +99,15 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLightningMesh =
         new ModConfigurationKey<bool>("RunLightningMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLogging =
+        new ModConfigurationKey<bool>("RunLogging", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLoggingErrors =
+        new ModConfigurationKey<bool>("RunLoggingErrors", null, () => true);
+    
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLoggingWarnings =
+        new ModConfigurationKey<bool>("RunLoggingWarnings", null, () => true);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLookAt =
         new ModConfigurationKey<bool>("RunLookAt", null, () => false);
 

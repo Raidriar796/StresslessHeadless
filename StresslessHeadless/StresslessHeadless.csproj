@@ -8,9 +8,9 @@
     <AssemblyTitle>StresslessHeadless</AssemblyTitle>
     <Authors>Raidriar796</Authors>
     <Copyright>Copyright © 2024 Raidriar796</Copyright>
-    <Version>1.2.0</Version>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.3.0</Version>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
+    <FileVersion>1.3.0.0</FileVersion>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -34,6 +34,10 @@
     </Reference>
     <Reference Include="FrooxEngine">
       <HintPath>$(ResonitePath)Headless\net8.0\FrooxEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Elements.Core">
+      <HintPath>$(ResonitePath)Headless\net8.0\Elements.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
