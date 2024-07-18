@@ -227,17 +227,6 @@ public partial class StresslessHeadless : ResoniteMod
         }
     }
 
-    [HarmonyPatch(typeof(EyeManager), "OnCommonUpdate")]
-    private class EyeManagerPatch
-    {
-        private static bool Prefix()
-        {
-            if (!Config.GetValue(RunEyeManager)) return false;
-
-            return true;
-        }
-    }
-
     [HarmonyPatch(typeof(FrameMesh), "UpdateMeshData")]
     private class FrameMeshPatch
     {

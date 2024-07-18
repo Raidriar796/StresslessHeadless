@@ -17,6 +17,17 @@ public partial class StresslessHeadless : ResoniteMod
         }
     }
 
+    [HarmonyPatch(typeof(AxisAligner), "OnCommonUpdate")]
+    private class AxisAlignerPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunAxisAligner)) return false;
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(LookAt), "OnCommonUpdate")]
     private class LookAtPatch
     {

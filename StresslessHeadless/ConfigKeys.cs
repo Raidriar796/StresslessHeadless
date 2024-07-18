@@ -12,8 +12,14 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunArrowMesh =
         new ModConfigurationKey<bool>("RunArrowMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAudioWaveformTexture =
+        new ModConfigurationKey<bool>("RunAutoLookAtUser", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAutoLookAtUser =
         new ModConfigurationKey<bool>("RunAutoLookAtUser", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAxisAligner =
+        new ModConfigurationKey<bool>("RunAxisAligner", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunBallisticPathMesh =
         new ModConfigurationKey<bool>("RunBallisticPathMesh", null, () => false);
@@ -75,6 +81,9 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
         new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDocumentPageTexture =
+        new ModConfigurationKey<bool>("RunDocumentPageTexture", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDynamicBoneChain =
         new ModConfigurationKey<bool>("RunDynamicBoneChain", null, () => false);
 
@@ -83,6 +92,12 @@ public partial class StresslessHeadless : ResoniteMod
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunFrameMesh =
         new ModConfigurationKey<bool>("RunFrameMesh", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunGradientStripTexture =
+        new ModConfigurationKey<bool>("RunGradientStripTexture", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunGridTexture =
+        new ModConfigurationKey<bool>("RunGridTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunHollowConeMesh =
         new ModConfigurationKey<bool>("RunHollowConeMesh", null, () => false);
@@ -123,6 +138,9 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunMultiSegmentMesh =
         new ModConfigurationKey<bool>("RunMultiSegmentMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunNoiseTexture =
+        new ModConfigurationKey<bool>("RunNoiseTexture", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunPanner1D =
         new ModConfigurationKey<bool>("RunPanner1D", null, () => false);
 
@@ -156,8 +174,14 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSegmentMesh =
         new ModConfigurationKey<bool>("RunSegmentMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSimplexTexture =
+        new ModConfigurationKey<bool>("RunSimplexTexture", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSlotSegmentMesh =
         new ModConfigurationKey<bool>("RunSlotSegmentMesh", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSolidColorTexture =
+        new ModConfigurationKey<bool>("RunSolidColorTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSphereMesh =
         new ModConfigurationKey<bool>("RunSphereMesh", null, () => false);
@@ -167,6 +191,9 @@ public partial class StresslessHeadless : ResoniteMod
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSteamIntegration =
         new ModConfigurationKey<bool>("RunSteamIntegration", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStringQRCodeTexture =
+        new ModConfigurationKey<bool>("RunDocumentPageTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStripeMesh =
         new ModConfigurationKey<bool>("RunStripeMesh", null, () => false);
@@ -185,6 +212,9 @@ public partial class StresslessHeadless : ResoniteMod
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunTubeSpiralMesh =
         new ModConfigurationKey<bool>("RunTubeSpiralMesh", null, () => false);
+
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunUVTexture =
+        new ModConfigurationKey<bool>("RunUVTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunVRIK =
         new ModConfigurationKey<bool>("RunVRIK", null, () => false);

@@ -1,6 +1,7 @@
 using HarmonyLib;
 using ResoniteModLoader;
 using FrooxEngine;
+using FrooxEngine.CommonAvatar;
 using FrooxEngine.FinalIK;
 
 namespace StresslessHeadless;
@@ -13,6 +14,17 @@ public partial class StresslessHeadless : ResoniteMod
         private static bool Prefix()
         {
             if (!Config.GetValue(RunDynamicBoneChain)) return false;
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(EyeManager), "OnCommonUpdate")]
+    private class EyeManagerPatch
+    {
+        private static bool Prefix()
+        {
+            if (!Config.GetValue(RunEyeManager)) return false;
 
             return true;
         }
