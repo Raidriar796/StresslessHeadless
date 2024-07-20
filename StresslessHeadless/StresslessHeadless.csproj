@@ -32,13 +32,19 @@
       <HintPath Condition="Exists('$(ResonitePath)Headless\net8.0\rml_libs\0Harmony-Net8.dll')">$(ResonitePath)Headless\net8.0\rml_libs\0Harmony-Net8.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="FrooxEngine">
+    <Reference Include="FrooxEngine" Publicize="true">
       <HintPath>$(ResonitePath)Headless\net8.0\FrooxEngine.dll</HintPath>
+      <Private>false</Private>
+      
+    </Reference>
+    <Reference Include="Elements.Assets">
+      <HintPath>$(ResonitePath)Headless\net8.0\Elements.Assets.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Elements.Core">
       <HintPath>$(ResonitePath)Headless\net8.0\Elements.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
   </ItemGroup>
 </Project>

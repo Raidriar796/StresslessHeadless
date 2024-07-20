@@ -12,6 +12,9 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunArrowMesh =
         new ModConfigurationKey<bool>("RunArrowMesh", null, () => false);
 
+    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAssetVariantGeneration =
+        new ModConfigurationKey<bool>("RunAssetVariantGeneration", null, () => false);
+
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAudioWaveformTexture =
         new ModConfigurationKey<bool>("RunAutoLookAtUser", null, () => false);
 
