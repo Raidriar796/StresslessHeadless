@@ -13,9 +13,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDynamicBoneChain)) return false;
+            if (Config.GetValue(RunDynamicBoneChain) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -24,9 +24,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunEyeManager)) return false;
+            if (Config.GetValue(RunEyeManager) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -35,9 +35,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunVRIK)) return false;
+            if (Config.GetValue(RunVRIK) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -46,9 +46,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunVRIKAvatar)) return false;
+            if (Config.GetValue(RunVRIKAvatar) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 }

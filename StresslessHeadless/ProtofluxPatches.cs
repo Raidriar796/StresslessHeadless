@@ -11,9 +11,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunProtofluxVisuals)) return false;
+            if (Config.GetValue(RunProtofluxVisuals) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 }

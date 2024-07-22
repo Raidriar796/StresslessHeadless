@@ -11,7 +11,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunAudioWaveformTexture)) return false;
+            if (Config.GetValue(RunAudioWaveformTexture) || stressMode) return true;
 
             return false;
         }
@@ -22,7 +22,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDocumentPageTexture)) return false;
+            if (Config.GetValue(RunDocumentPageTexture) || stressMode) return true;
 
             return false;
         }
@@ -33,7 +33,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunGradientStripTexture)) return false;
+            if (Config.GetValue(RunGradientStripTexture) || stressMode) return true;
 
             return false;
         }
@@ -44,7 +44,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunGridTexture)) return false;
+            if (Config.GetValue(RunGridTexture) || stressMode) return true;
 
             return false;
         }
@@ -55,7 +55,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunNoiseTexture)) return false;
+            if (Config.GetValue(RunNoiseTexture) || stressMode) return true;
 
             return false;
         }
@@ -66,7 +66,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunSimplexTexture)) return false;
+            if (Config.GetValue(RunSimplexTexture) || stressMode) return true;
 
             return false;
         }
@@ -77,7 +77,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunSolidColorTexture)) return false;
+            if (Config.GetValue(RunSolidColorTexture) || stressMode) return true;
 
             return false;
         }
@@ -88,7 +88,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunStringQRCodeTexture)) return false;
+            if (Config.GetValue(RunStringQRCodeTexture) || stressMode) return true;
 
             return false;
         }
@@ -99,7 +99,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunUVTexture)) return false;
+            if (Config.GetValue(RunUVTexture) || stressMode) return true;
 
             return false;
         }

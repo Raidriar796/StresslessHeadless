@@ -118,7 +118,7 @@ public partial class StresslessHeadless : ResoniteMod
         new ModConfigurationKey<bool>("RunLightningMesh", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLogging =
-        new ModConfigurationKey<bool>("RunLogging", null, () => false);
+        new ModConfigurationKey<bool>("RunLogging", null, () => true);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunLoggingErrors =
         new ModConfigurationKey<bool>("RunLoggingErrors", null, () => true);

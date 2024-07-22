@@ -11,9 +11,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -22,9 +22,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -33,9 +33,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -44,9 +44,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -55,9 +55,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -66,9 +66,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -77,9 +77,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -88,9 +88,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -99,9 +99,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunDiscordIntegration)) return false;
+            if (Config.GetValue(RunDiscordIntegration) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 }

@@ -19,12 +19,17 @@ public partial class StresslessHeadless : ResoniteMod
 
         Engine.Current.RunPostInit(() => 
         {
-        if (ModLoader.VERSION == "2.4.0") Msg(warningText);
-        else if (ModLoader.VERSION == "2.5.0") Msg(warningText);
-        else if (ModLoader.VERSION == "2.5.1") Msg(warningText);
-        else if (!ModLoader.IsHeadless) Msg("Mod intended for Headless clients, please uninstall");
-        else if (Config.GetValue(Enable)) harmony.PatchAll();
+            if (ModLoader.VERSION == "2.4.0") Msg(warningText);
+            else if (ModLoader.VERSION == "2.5.0") Msg(warningText);
+            else if (ModLoader.VERSION == "2.5.1") Msg(warningText);
+            else if (!ModLoader.IsHeadless) Msg("Mod intended for Headless clients, please uninstall");
+            else if (Config.GetValue(Enable))
+            {
+                harmony.PatchAll();
+                DelayedPatch(harmony);
+            }
         });
     }
     private string warningText = "Mod Loader out of date, please update to 2.6.0 or later";
+    private static bool stressMode = false;
 }

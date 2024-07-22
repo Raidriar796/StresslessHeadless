@@ -35,7 +35,10 @@
     <Reference Include="FrooxEngine" Publicize="true">
       <HintPath>$(ResonitePath)Headless\net8.0\FrooxEngine.dll</HintPath>
       <Private>false</Private>
-      
+    </Reference>
+    <Reference Include="Resonite.dll">
+      <HintPath>$(ResonitePath)Headless\net8.0\Resonite.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Elements.Assets">
       <HintPath>$(ResonitePath)Headless\net8.0\Elements.Assets.dll</HintPath>

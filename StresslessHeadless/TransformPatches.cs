@@ -11,7 +11,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunAutoLookAtUser)) return false;
+            if (Config.GetValue(RunAutoLookAtUser) || stressMode) return false;
 
             return false;
         }
@@ -22,7 +22,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunAxisAligner)) return false;
+            if (Config.GetValue(RunAxisAligner) || stressMode) return false;
 
             return false;
         }
@@ -33,9 +33,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunLookAt)) return false;
+            if (Config.GetValue(RunLookAt) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -44,9 +44,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunLookAtUser)) return false;
+            if (Config.GetValue(RunLookAtUser) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -55,9 +55,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunPanner1D)) return false;
+            if (Config.GetValue(RunPanner1D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -66,9 +66,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunPanner2D)) return false;
+            if (Config.GetValue(RunPanner2D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -77,9 +77,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunPanner3D)) return false;
+            if (Config.GetValue(RunPanner3D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -88,9 +88,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunPanner4D)) return false;
+            if (Config.GetValue(RunPanner4D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -99,9 +99,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunSpinner)) return false;
+            if (Config.GetValue(RunSpinner) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -110,9 +110,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunWiggler)) return false;
+            if (Config.GetValue(RunWiggler) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -121,9 +121,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunWobbler1D)) return false;
+            if (Config.GetValue(RunWobbler1D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -132,9 +132,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunWobbler2D)) return false;
+            if (Config.GetValue(RunWobbler2D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -143,9 +143,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunWobbler3D)) return false;
+            if (Config.GetValue(RunWobbler3D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -154,9 +154,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunWobbler4D)) return false;
+            if (Config.GetValue(RunWobbler4D) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 }

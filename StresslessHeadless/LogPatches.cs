@@ -10,9 +10,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunLoggingErrors)) return false;
+            if (Config.GetValue(RunLoggingErrors) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -21,9 +21,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunLogging)) return false;
+            if (Config.GetValue(RunLogging) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 
@@ -32,9 +32,9 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (!Config.GetValue(RunLoggingWarnings)) return false;
+            if (Config.GetValue(RunLoggingWarnings) || stressMode) return true;
 
-            return true;
+            return false;
         }
     }
 }   
