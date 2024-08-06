@@ -11,7 +11,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (Config.GetValue(RunAutoLookAtUser) || stressMode) return false;
+            if (Config.GetValue(RunAutoLookAtUser) || stressMode) return true;
 
             return false;
         }
@@ -22,7 +22,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         private static bool Prefix()
         {
-            if (Config.GetValue(RunAxisAligner) || stressMode) return false;
+            if (Config.GetValue(RunAxisAligner) || stressMode) return true;
 
             return false;
         }
