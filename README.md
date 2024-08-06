@@ -23,11 +23,6 @@ The following cases are known to cause irregular behavior:
 - VRIK
 - VRIKAvatar
 
-### Integrations
-
-- Discord
-- Steam
-
 ### Logs (not skipped by default)
 
 - Errors
