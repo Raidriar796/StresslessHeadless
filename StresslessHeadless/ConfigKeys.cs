@@ -81,9 +81,6 @@ public partial class StresslessHeadless : ResoniteMod
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunCylinderMesh =
         new ModConfigurationKey<bool>("RunCylinderMesh", null, () => false);
 
-    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDiscordIntegration =
-        new ModConfigurationKey<bool>("RunDiscordIntegration", null, () => false);
-
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunDocumentPageTexture =
         new ModConfigurationKey<bool>("RunDocumentPageTexture", null, () => false);
 
@@ -191,9 +188,6 @@ public partial class StresslessHeadless : ResoniteMod
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSpinner =
         new ModConfigurationKey<bool>("RunSpinner", null, () => false);
-
-    [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunSteamIntegration =
-        new ModConfigurationKey<bool>("RunSteamIntegration", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStringQRCodeTexture =
         new ModConfigurationKey<bool>("RunDocumentPageTexture", null, () => false);
