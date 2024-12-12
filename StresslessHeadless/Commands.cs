@@ -6,7 +6,7 @@ namespace StresslessHeadless;
 
 public partial class StresslessHeadless : ResoniteMod
 {
-    internal static void DelayedPatch(Harmony harmony)
+    internal static void DelayedPatch()
     {
         var target = typeof(HeadlessCommands).GetMethod(nameof(HeadlessCommands.SetupCommonCommands));
         var postfix = typeof(StresslessHeadless).GetMethod(nameof(StressCommand));
@@ -23,21 +23,11 @@ public partial class StresslessHeadless : ResoniteMod
             }
             else if (args[0].Contains("enable"))
             {
-                if (stressMode == false)
-                {  
-                    stressMode = true;
-                    Msg("Stress enabled");
-                }
-                else Msg("Stress already enabled");
+                harmony.UnpatchAll();
             }
             else if (args[0].Contains("disable"))
             {
-                if (stressMode == true)
-                {
-                    stressMode = false;
-                    Msg("Stress disabled");
-                }
-                else Msg("Stress already disabled");
+                SelectivePatches();
             }
             else 
             {

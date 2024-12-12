@@ -14,7 +14,7 @@ public partial class StresslessHeadless : ResoniteMod
     {
         return false;
     }
-    private static void SelectivePatches(Harmony harmony)
+    private static void SelectivePatches()
     {
         var skipMethod = typeof(StresslessHeadless).GetMethod("Skip");
 
