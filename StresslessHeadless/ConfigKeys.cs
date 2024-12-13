@@ -16,7 +16,7 @@ public partial class StresslessHeadless : ResoniteMod
         new ModConfigurationKey<bool>("RunAssetVariantGeneration", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAudioWaveformTexture =
-        new ModConfigurationKey<bool>("RunAutoLookAtUser", null, () => false);
+        new ModConfigurationKey<bool>("RunAudioWaveformTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunAutoLookAtUser =
         new ModConfigurationKey<bool>("RunAutoLookAtUser", null, () => false);
@@ -190,7 +190,7 @@ public partial class StresslessHeadless : ResoniteMod
         new ModConfigurationKey<bool>("RunSpinner", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStringQRCodeTexture =
-        new ModConfigurationKey<bool>("RunDocumentPageTexture", null, () => false);
+        new ModConfigurationKey<bool>("RunStringQRCodeTexture", null, () => false);
 
     [AutoRegisterConfigKey] public static readonly ModConfigurationKey<bool> RunStripeMesh =
         new ModConfigurationKey<bool>("RunStripeMesh", null, () => false);
