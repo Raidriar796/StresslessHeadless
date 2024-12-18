@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup> 
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StresslessHeadless</RootNamespace>
@@ -28,7 +28,7 @@
       <Private>false</Private>
     </Reference>
     <Reference Include="HarmonyLib">
-      <HintPath>$(ResonitePath)Headless\rml_libs\0Harmony-Net8.dll</HintPath>
+      <HintPath>$(ResonitePath)Headless\rml_libs\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="FrooxEngine" Publicize="true">
