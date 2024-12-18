@@ -23,13 +23,6 @@ public partial class StresslessHeadless : ResoniteMod
         if (!Config.GetValue(RunArrowMesh))
         {
             harmony.Patch(typeof(ArrowMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
-        }   
-
-        if (!!Config.GetValue(RunAssetVariantGeneration))
-        {
-            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
-
-            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant", BindingFlags.Instance | BindingFlags.Public), prefix: SkipMethod);
         }
 
         if (!Config.GetValue(RunAudioWaveformTexture))
