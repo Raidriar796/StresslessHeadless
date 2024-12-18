@@ -5,6 +5,7 @@ using FrooxEngine.CommonAvatar;
 using FrooxEngine.FinalIK;
 using Elements.Core;
 using FrooxEngine.ProtoFlux;
+using System.Reflection;
 
 namespace StresslessHeadless;
 
@@ -16,378 +17,379 @@ public partial class StresslessHeadless : ResoniteMod
     }
     private static void SelectivePatches()
     {
-        var SkipMethod = typeof(StresslessHeadless).GetMethod("Skip");
+        var Prefix = typeof(StresslessHeadless).GetMethod("Skip", BindingFlags.Static | BindingFlags.Public);
+        HarmonyMethod SkipMethod = new HarmonyMethod(Prefix);
 
-        if (Config.GetValue(RunArrowMesh))
+        if (!Config.GetValue(RunArrowMesh))
         {
-            harmony.Patch(typeof(ArrowMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(ArrowMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
+        }   
+
+        if (!!Config.GetValue(RunAssetVariantGeneration))
+        {
+            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
+
+            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant", BindingFlags.Instance | BindingFlags.Public), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunAssetVariantGeneration))
+        if (!Config.GetValue(RunAudioWaveformTexture))
         {
-            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant"), prefix: SkipMethod);
-
-            harmony.Patch(typeof(AssetVariantGenerator.ComputeTask).GetMethod("ComputeVariant"), prefix: SkipMethod);
+            harmony.Patch(typeof(AudioWaveformTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunAudioWaveformTexture))
+        if (!Config.GetValue(RunAutoLookAtUser))
         {
-            harmony.Patch(typeof(AudioWaveformTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(AutoLookAtUser).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunAutoLookAtUser))
+        if (!Config.GetValue(RunAxisAligner))
         {
-            harmony.Patch(typeof(AutoLookAtUser).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(AxisAligner).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunAxisAligner))
+        if (!Config.GetValue(RunBallisticPathMesh))
         {
-            harmony.Patch(typeof(AxisAligner).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(BallisticPathMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBallisticPathMesh))
+        if (!Config.GetValue(RunBentTubeMesh))
         {
-            harmony.Patch(typeof(BallisticPathMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BentTubeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBentTubeMesh))
+        if (!Config.GetValue(RunBevelBoxMesh))
         {
-            harmony.Patch(typeof(BentTubeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BevelBoxMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBevelBoxMesh))
+        if (!Config.GetValue(RunBevelPlaneMesh))
         {
-            harmony.Patch(typeof(BevelBoxMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BevelPlaneMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBevelPlaneMesh))
+        if (!Config.GetValue(RunBevelStripeMesh))
         {
-            harmony.Patch(typeof(BevelPlaneMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BevelStripeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBevelStripeMesh))
+        if (!Config.GetValue(RunBezierTubeMesh))
         {
-            harmony.Patch(typeof(BevelStripeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BezierTubeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBezierTubeMesh))
+        if (!Config.GetValue(RunBoxArrayMesh))
         {
-            harmony.Patch(typeof(BezierTubeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BoxArrayMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBoxArrayMesh))
+        if (!Config.GetValue(RunBoxMesh))
         {
-            harmony.Patch(typeof(BoxArrayMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(BoxMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunBoxMesh))
+        if (!Config.GetValue(RunCameraFrustumMesh))
         {
-            harmony.Patch(typeof(BoxMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CameraFrustumMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCameraFrustumMesh))
+        if (!Config.GetValue(RunCapsuleMesh))
         {
-            harmony.Patch(typeof(CameraFrustumMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CapsuleMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCapsuleMesh))
+        if (!Config.GetValue(RunCircleMesh))
         {
-            harmony.Patch(typeof(CapsuleMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CircleMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCircleMesh))
+        if (!Config.GetValue(RunCircleSegmentShaderMesh))
         {
-            harmony.Patch(typeof(CircleMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CircleSegmentShaderMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCircleSegmentShaderMesh))
+        if (!Config.GetValue(RunColorWheelTriangleMesh))
         {
-            harmony.Patch(typeof(CircleSegmentShaderMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(ColorWheelTriangleMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunColorWheelTriangleMesh))
+        if (!Config.GetValue(RunConeMesh))
         {
-            harmony.Patch(typeof(ColorWheelTriangleMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(ConeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunConeMesh))
+        if (!Config.GetValue(RunCrossMesh))
         {
-            harmony.Patch(typeof(ConeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CrossMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCrossMesh))
+        if (!Config.GetValue(RunConvexHullMesh))
         {
-            harmony.Patch(typeof(CrossMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(ConvexHullMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunConvexHullMesh))
+        if (!Config.GetValue(RunCurvedPlaneMesh))
         {
-            harmony.Patch(typeof(ConvexHullMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CurvedPlaneMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCurvedPlaneMesh))
+        if (!Config.GetValue(RunCylinderMesh))
         {
-            harmony.Patch(typeof(CurvedPlaneMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(CylinderMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunCylinderMesh))
+        if (!Config.GetValue(RunDocumentPageTexture))
         {
-            harmony.Patch(typeof(CylinderMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(DocumentPageTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunDocumentPageTexture))
+        if (!Config.GetValue(RunDynamicBoneChain))
         {
-            harmony.Patch(typeof(DocumentPageTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(DynamicBoneChainManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.Public), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunDynamicBoneChain))
+        if (!Config.GetValue(RunEyeManager))
         {
-            harmony.Patch(typeof(DynamicBoneChainManager).GetMethod("Update"), prefix: SkipMethod);
+            harmony.Patch(typeof(EyeManager).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunEyeManager))
+        if (!Config.GetValue(RunFrameMesh))
         {
-            harmony.Patch(typeof(EyeManager).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(FrameMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunFrameMesh))
+        if (!Config.GetValue(RunGradientStripTexture))
         {
-            harmony.Patch(typeof(FrameMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(GradientStripTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunGradientStripTexture))
+        if (!Config.GetValue(RunGridTexture))
         {
-            harmony.Patch(typeof(GradientStripTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(GridTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunGridTexture))
+        if (!Config.GetValue(RunHollowConeMesh))
         {
-            harmony.Patch(typeof(GridTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(HollowConeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunHollowConeMesh))
+        if (!Config.GetValue(RunIcoSphereMesh))
         {
-            harmony.Patch(typeof(HollowConeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(IcoSphereMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunIcoSphereMesh))
+        if (!Config.GetValue(RunLabelPointerMesh))
         {
-            harmony.Patch(typeof(IcoSphereMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(LabelPointerMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLabelPointerMesh))
+        if (!Config.GetValue(RunLegacyCircleSegmentMesh))
         {
-            harmony.Patch(typeof(LabelPointerMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(LegacyCircleSegmentMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLegacyCircleSegmentMesh))
+        if (!Config.GetValue(RunLightningMesh))
         {
-            harmony.Patch(typeof(LegacyCircleSegmentMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(LightningMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLightningMesh))
-        {
-            harmony.Patch(typeof(LightningMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
-        }
-
-        if (Config.GetValue(RunLogging))
+        if (!Config.GetValue(RunLogging))
         {
             harmony.Patch(typeof(UniLog).GetMethod("Log", [typeof(string), typeof(bool)]), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLoggingErrors))
+        if (!Config.GetValue(RunLoggingErrors))
         {
             harmony.Patch(typeof(UniLog).GetMethod("Error"), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLoggingWarnings))
+        if (!Config.GetValue(RunLoggingWarnings))
         {
             harmony.Patch(typeof(UniLog).GetMethod("Warning"), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLookAt))
+        if (!Config.GetValue(RunLookAt))
         {
-            harmony.Patch(typeof(LookAt).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(LookAt).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunLookAtUser))
+        if (!Config.GetValue(RunLookAtUser))
         {
-            harmony.Patch(typeof(LookAtUser).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(LookAtUser).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunMultiBevelStripeMesh))
+        if (!Config.GetValue(RunMultiBevelStripeMesh))
         {
-            harmony.Patch(typeof(MultiBevelStripeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(MultiBevelStripeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunMultiLineMesh))
+        if (!Config.GetValue(RunMultiLineMesh))
         {
-            harmony.Patch(typeof(MultiLineMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(MultiLineMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunMultiSegmentMesh))
+        if (!Config.GetValue(RunMultiSegmentMesh))
         {
-            harmony.Patch(typeof(MultiSegmentMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(MultiSegmentMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunNoiseTexture))
+        if (!Config.GetValue(RunNoiseTexture))
         {
-            harmony.Patch(typeof(NoiseTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(NoiseTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunPanner1D))
+        if (!Config.GetValue(RunPanner1D))
         {
-            harmony.Patch(typeof(Panner1D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Panner1D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunPanner2D))
+        if (!Config.GetValue(RunPanner2D))
         {
-            harmony.Patch(typeof(Panner2D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Panner2D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunPanner3D))
+        if (!Config.GetValue(RunPanner3D))
         {
-            harmony.Patch(typeof(Panner3D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Panner3D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunPanner4D))
+        if (!Config.GetValue(RunPanner4D))
         {
-            harmony.Patch(typeof(Panner4D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Panner4D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunPointMesh))
+        if (!Config.GetValue(RunPointMesh))
         {
-            harmony.Patch(typeof(PointMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(PointMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunProtofluxVisuals))
+        if (!Config.GetValue(RunProtofluxVisuals))
         {
-            harmony.Patch(typeof(ProtoFluxNodeVisual).GetMethod("GenerateVisual"), prefix: SkipMethod);
+            harmony.Patch(typeof(ProtoFluxNodeVisual).GetMethod("GenerateVisual", BindingFlags.Instance | BindingFlags.Public), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunQuadArrayMesh))
+        if (!Config.GetValue(RunQuadArrayMesh))
         {
-            harmony.Patch(typeof(QuadArrayMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(QuadArrayMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunQuadMesh))
+        if (!Config.GetValue(RunQuadMesh))
         {
-            harmony.Patch(typeof(QuadMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(QuadMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunRampMesh))
+        if (!Config.GetValue(RunRampMesh))
         {
-            harmony.Patch(typeof(RingMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(RingMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSegmentMesh))
+        if (!Config.GetValue(RunSegmentMesh))
         {
-            harmony.Patch(typeof(SegmentMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(SegmentMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSimplexTexture))
+        if (!Config.GetValue(RunSimplexTexture))
         {
-            harmony.Patch(typeof(SimplexTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(SimplexTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSlotSegmentMesh))
+        if (!Config.GetValue(RunSlotSegmentMesh))
         {
-            harmony.Patch(typeof(SegmentMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(SegmentMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSolidColorTexture))
+        if (!Config.GetValue(RunSolidColorTexture))
         {
-            harmony.Patch(typeof(SolidColorTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(SolidColorTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSphereMesh))
+        if (!Config.GetValue(RunSphereMesh))
         {
-            harmony.Patch(typeof(SphereMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(SphereMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunSpinner))
+        if (!Config.GetValue(RunSpinner))
         {
-            harmony.Patch(typeof(Spinner).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Spinner).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunStringQRCodeTexture))
+        if (!Config.GetValue(RunStringQRCodeTexture))
         {
-            harmony.Patch(typeof(StringQRCodeTexture).GetMethod("UpdateAssetData"), prefix: SkipMethod);
+            harmony.Patch(typeof(StringQRCodeTexture).GetMethod("UpdateAssetData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunStripeMesh))
+        if (!Config.GetValue(RunStripeMesh))
         {
-            harmony.Patch(typeof(StripeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(StripeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunTorusMesh))
+        if (!Config.GetValue(RunTorusMesh))
         {
-            harmony.Patch(typeof(TorusMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(TorusMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunTriangleMesh))
+        if (!Config.GetValue(RunTriangleMesh))
         {
-            harmony.Patch(typeof(TriangleMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(TriangleMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunTubeBoxMesh))
+        if (!Config.GetValue(RunTubeBoxMesh))
         {
-            harmony.Patch(typeof(TubeBoxMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(TubeBoxMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunTubeMesh))
+        if (!Config.GetValue(RunTubeMesh))
         {
-            harmony.Patch(typeof(TubeMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(TubeMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunTubeSpiralMesh))
+        if (!Config.GetValue(RunTubeSpiralMesh))
         {
-            harmony.Patch(typeof(TubeSpiralMesh).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(TubeSpiralMesh).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunUVTexture))
+        if (!Config.GetValue(RunUVTexture))
         {
-            harmony.Patch(typeof(UVTexture).GetMethod("UpdateTextureData"), prefix: SkipMethod);
+            harmony.Patch(typeof(UVTexture).GetMethod("UpdateTextureData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunVRIK))
+        if (!Config.GetValue(RunVRIK))
         {
-            harmony.Patch(typeof(VRIK).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(VRIK).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunVRIKAvatar))
+        if (!Config.GetValue(RunVRIKAvatar))
         {
-            harmony.Patch(typeof(VRIKAvatar).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(VRIKAvatar).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWiggler))
+        if (!Config.GetValue(RunWiggler))
         {
-            harmony.Patch(typeof(Wiggler).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Wiggler).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWireMeshBase))
+        if (!Config.GetValue(RunWireMeshBase))
         {
-            harmony.Patch(typeof(WireMeshBase).GetMethod("UpdateMeshData"), prefix: SkipMethod);
+            harmony.Patch(typeof(WireMeshBase).GetMethod("UpdateMeshData", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWobbler1D))
+        if (!Config.GetValue(RunWobbler1D))
         {
-            harmony.Patch(typeof(Wobbler1D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Wobbler1D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWobbler2D))
+        if (!Config.GetValue(RunWobbler2D))
         {
-            harmony.Patch(typeof(Wobbler2D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Wobbler2D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWobbler3D))
+        if (!Config.GetValue(RunWobbler3D))
         {
-            harmony.Patch(typeof(Wobbler3D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Wobbler3D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
 
-        if (Config.GetValue(RunWobbler4D))
+        if (!Config.GetValue(RunWobbler4D))
         {
-            harmony.Patch(typeof(Wobbler4D).GetMethod("OnCommonUpdate"), prefix: SkipMethod);
+            harmony.Patch(typeof(Wobbler4D).GetMethod("OnCommonUpdate", BindingFlags.Instance | BindingFlags.NonPublic), prefix: SkipMethod);
         }
     }
 }
