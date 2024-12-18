@@ -7,12 +7,12 @@ A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoade
 The following cases are known to cause irregular behavior:
 - Requiring the host to provide the output of a driven value from a component that's disabled by this mod.
 - Making the host run the async call in a "Bake Meshes" node
+- Undriving fields, even if the undrive is caused by a user
 
 ## What gets skipped:
 
 ### Assets
 
-- Asset Variant Generation
 - All procedural meshes
 - All procedural textures
 
@@ -48,7 +48,7 @@ The following cases are known to cause irregular behavior:
 ## Commands added by this mod:
 
 - stress <enable/disable>
-  - Allows everything to run, regardless of config settings. Primarily for A/B testing or for quickly checking if StresslessHeadless is causing any issues.
+  - Practically disables the mod during runtime. Primarily for A/B testing or for quickly checking if StresslessHeadless is causing any issues.
 
 ## Why does the headless client do this if it's not needed?
 
@@ -61,7 +61,8 @@ A lot of what's skipped here is stuff that's not networked or intended to only r
 With less work to do per update, each update can run quicker, causing more updates to happen, which means increased resource usage. This will vary based on the worlds hosted and user's avatars. A similar thing occured with the switch from Mono to .Net 8, as the new runtime was far more efficient and could run faster, causing more resource usage.
 
 ## Requirements
-- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) 2.6.0 or later
+- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
+- [Harmony Net9.0 Fix](https://github.com/stiefeljackal/pardeike.Harmony/tree/temp-release)
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
