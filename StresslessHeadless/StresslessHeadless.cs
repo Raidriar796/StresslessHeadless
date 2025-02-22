@@ -24,7 +24,7 @@ public partial class StresslessHeadless : ResoniteMod
                 SelectivePatches();
                 DelayedPatch();
             }
-            else if (ModLoader.IsHeadless)
+            else if (!ModLoader.IsHeadless)
             {
                 Warn("StresslessHeadless is intended for headless clients only, please uninstall");
             }
