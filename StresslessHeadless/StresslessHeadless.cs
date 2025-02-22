@@ -19,10 +19,14 @@ public partial class StresslessHeadless : ResoniteMod
 
         Engine.Current.RunPostInit(() => 
         {
-            if (Config.GetValue(Enable))
+            if (Config.GetValue(Enable) && ModLoader.IsHeadless)
             {
                 SelectivePatches();
                 DelayedPatch();
+            }
+            else if (ModLoader.IsHeadless)
+            {
+                Warn("StresslessHeadless is intended for headless clients only, please uninstall");
             }
         });
     }
