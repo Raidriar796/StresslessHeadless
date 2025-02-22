@@ -9,6 +9,14 @@ The following cases are known to cause irregular behavior:
 - Making the host run the async call in a "Bake Meshes" node
 - Undriving fields, even if the undrive is caused by a user
 
+## Requirements
+- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
+
+## Installation
+1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
+2. Place [StresslessHeadless.dll](https://github.com/Raidriar796/StresslessHeadless/releases/latest/download/StresslessHeadless.dll) into your `rml_mods` folder inside of the Headless installation. You can create it if it's missing, or if you launch the game once with ResoniteModLoader installed it will create the folder for you.
+3. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
+
 ## What gets skipped:
 
 ### Assets
@@ -48,7 +56,7 @@ The following cases are known to cause irregular behavior:
 ## Commands added by this mod:
 
 - stress <enable/disable>
-  - Practically disables the mod during runtime. Primarily for A/B testing or for quickly checking if StresslessHeadless is causing any issues.
+  - Undoes or reapplies all changes by this mod. Primarily for A/B testing or checking if the mod is causing issues.
 
 ## Why does the headless client do this if it's not needed?
 
@@ -59,12 +67,3 @@ A lot of what's skipped here is stuff that's not networked or intended to only r
 ## Despite what the name may imply, resource usage on your headless host may increase
 
 With less work to do per update, each update can run quicker, causing more updates to happen, which means increased resource usage. This will vary based on the worlds hosted and user's avatars. A similar thing occured with the switch from Mono to .Net 8, as the new runtime was far more efficient and could run faster, causing more resource usage.
-
-## Requirements
-- [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader)
-- [Harmony Net9.0 Fix](https://github.com/stiefeljackal/pardeike.Harmony/tree/temp-release)
-
-## Installation
-1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
-2. Place [StresslessHeadless.dll](https://github.com/Raidriar796/StresslessHeadless/releases/latest/download/StresslessHeadless.dll) into your `rml_mods` folder inside of the Headless installation. You can create it if it's missing, or if you launch the game once with ResoniteModLoader installed it will create the folder for you.
-3. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
