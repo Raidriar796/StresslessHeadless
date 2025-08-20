@@ -29,7 +29,7 @@ public partial class StresslessHeadless : ResoniteMod
             {
                 SelectivePatches();
             }
-            else 
+            else
             {
                 Warn("Argument must be enable or disable");
             }

@@ -17,7 +17,7 @@ public partial class StresslessHeadless : ResoniteMod
         Config = GetConfiguration();
         Config?.Save(true);
 
-        Engine.Current.RunPostInit(() => 
+        Engine.Current.RunPostInit(() =>
         {
             if (Config.GetValue(Enable) && ModLoader.IsHeadless)
             {
