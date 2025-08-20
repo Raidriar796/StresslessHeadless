@@ -14,12 +14,12 @@ public partial class StresslessHeadless : ResoniteMod
 
     public override void OnEngineInit()
     {
-        Config = GetConfiguration();
+        Config = GetConfiguration()!;
         Config?.Save(true);
 
         Engine.Current.RunPostInit(() =>
         {
-            if (Config.GetValue(Enable) && ModLoader.IsHeadless)
+            if (Config!.GetValue(Enable) && ModLoader.IsHeadless)
             {
                 SelectivePatches();
                 DelayedPatch();
