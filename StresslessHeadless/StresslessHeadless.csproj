@@ -23,14 +23,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ResoniteModLoader">
-      <HintPath>$(ResonitePath)Libraries\ResoniteModLoader.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="HarmonyLib">
-      <HintPath>$(ResonitePath)Headless\rml_libs\0Harmony.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <PackageReference Include="ResoniteModLoader" Version="5.0.0" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
     <Reference Include="FrooxEngine" Publicize="true">
       <HintPath>$(ResonitePath)Headless\FrooxEngine.dll</HintPath>
       <Private>false</Private>
@@ -47,6 +42,5 @@
       <HintPath>$(ResonitePath)Headless\Elements.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
   </ItemGroup>
 </Project>
