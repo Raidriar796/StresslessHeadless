@@ -17,7 +17,7 @@ public partial class StresslessHeadless : ResoniteMod
         Config = GetConfiguration()!;
         Config?.Save(true);
 
-        if (Config!.GetValue(Enable) && ModLoader.IsHeadless)
+        if (Enable.Value && ModLoader.IsHeadless)
         {
             SelectivePatches();
             DelayedPatch();
